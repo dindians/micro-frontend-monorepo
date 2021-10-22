@@ -13,6 +13,10 @@
       "lib-log-message-shared": [
         "dist/lib-log-message-shared/lib-log-message-shared",
         "dist/lib-log-message-shared"
+      ],
+      "log-message-tester": [
+        "dist/log-message-tester/log-message-tester",
+        "dist/log-message-tester"
       ]
     },
     "declaration": false,

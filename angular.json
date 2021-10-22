@@ -34,6 +34,7 @@
               "projects/host/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/host/src/styles.scss"
             ],
             "scripts": []
@@ -102,6 +103,7 @@
               "projects/host/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/host/src/styles.scss"
             ],
             "scripts": []
@@ -239,6 +241,37 @@
             "main": "projects/lib-log-message-shared/src/test.ts",
             "tsConfig": "projects/lib-log-message-shared/tsconfig.spec.json",
             "karmaConfig": "projects/lib-log-message-shared/karma.conf.js"
+          }
+        }
+      }
+    },
+    "log-message-tester": {
+      "projectType": "library",
+      "root": "projects/log-message-tester",
+      "sourceRoot": "projects/log-message-tester/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/log-message-tester/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/log-message-tester/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/log-message-tester/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/log-message-tester/src/test.ts",
+            "tsConfig": "projects/log-message-tester/tsconfig.spec.json",
+            "karmaConfig": "projects/log-message-tester/karma.conf.js"
           }
         }
       }

@@ -1,0 +1,19 @@
+1. create monorepository
+  ng new micro-frontend-monorepo --create-application false
+2. create the host and micro frontend projects
+  cd micro-frontend-monorepo
+  ng application host --routing --style=scss
+  ng application mfe1 --routing --style=scss
+3. create the shared log-message library project
+  ng g lib lib-log-message-shared
+4. create the shared log message tester library project
+  ng g lib log-message-tester
+5. add start commands for host and mfe1 project to package.json
+  "scripts": {
+    ...
+    "start:host": "ng serve --project host --port 4000",
+    "start:mfe1": "ng serve --project mfe1 --port 4001",
+    ...
+  }
+6. install angular material (material.angular.io)
+  ng add @angular/material
