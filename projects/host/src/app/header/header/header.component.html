@@ -1,7 +1,9 @@
-<mat-toolbar>
+<mat-toolbar *ngIf="(context$ | async) as context">
   <span>host application</span>
   <span class="toolbar-spacer"></span>
   <button mat-icon-button routerLink="/home">
     <mat-icon matTooltip="home">home</mat-icon>
   </button>
-</mat-toolbar>
+  <button mat-icon-button routerLink="/mfe1-logmessages">
+    <mat-icon matTooltip="mfe-one logmessages" matBadge="{{context.logMessages.length}}" matBadgeColor="warn" matBadgeSize="small">announcement</mat-icon>
+  </button></mat-toolbar>

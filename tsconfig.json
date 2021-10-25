@@ -14,6 +14,11 @@
         "dist/lib-log-message-shared/lib-log-message-shared",
         "dist/lib-log-message-shared"
       ],
+      "log-messages": [
+        "dist/log-messages/log-messages",
+        "dist/log-messages"
+      ],
+      "@lib/log-messages": [ "./projects/log-messages/src/projects.ts" ],
       "log-message-tester": [
         "dist/log-message-tester/log-message-tester",
         "dist/log-message-tester"
