@@ -1,7 +1,6 @@
 import {Component, Inject} from '@angular/core';
 import {LogLevel, LogMessage, ILogMessageAdder, LogMessagesStore, ILOGMESSAGE_ADDER_INJECTION_TOKEN} from "@lib/log-messages";
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

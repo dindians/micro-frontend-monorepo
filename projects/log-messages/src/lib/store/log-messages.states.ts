@@ -21,5 +21,4 @@ export class LogMessagesStates {
   private static _deleteLogMessage(logMessages: LogMessage[], logMessageToDelete: LogMessage): LogMessage[] {
     return logMessages.filter(logMessage => !LogMessage.areEqual(logMessage, logMessageToDelete));
   }
-
 }
