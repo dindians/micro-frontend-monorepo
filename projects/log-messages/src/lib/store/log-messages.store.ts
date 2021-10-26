@@ -9,17 +9,16 @@ import {
   ILogMessageAdder,
   ILogMessageDeleter,
   ILogMessagesContext,
-  ILogMessagesState,
-  LogMessagesState
+  ILogMessagesState
 } from "@lib/log-messages";
 
 export const ILOGMESSAGE_ADDER_INJECTION_TOKEN = new InjectionToken<ILogMessageAdder>('ILOGMESSAGE_ADDER');
 export const ILOGMESSAGES_CONTEXT_INJECTION_TOKEN = new InjectionToken<ILogMessagesContext>('ILOGMESSAGES_CONTEXT');
 
 const logMessagesStateFeatureName = 'logMessagesState';
-const logMessagesFeatureSelector = createFeatureSelector<LogMessagesState>(logMessagesStateFeatureName)
+const logMessagesFeatureSelector = createFeatureSelector<ILogMessagesState>(logMessagesStateFeatureName)
 const logMessages = createSelector(logMessagesFeatureSelector, state => state.logMessages)
-const logMessagesContext = (store: Store<LogMessagesState>) => combineLatest([store.pipe(select(logMessages))])
+const logMessagesContext = (store: Store<ILogMessagesState>) => combineLatest([store.pipe(select(logMessages))])
   .pipe(map(([logMessages]) => { return { logMessages: logMessages } }));
 
 @Injectable({ providedIn: 'root'})
