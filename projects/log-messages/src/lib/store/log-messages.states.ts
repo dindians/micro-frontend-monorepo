@@ -7,11 +7,11 @@ export class LogMessagesStates {
     return LogMessagesState.create(LogMessagesStates._addLogMessage(state.logMessages, logMessage));
   }
 
-  static logMessageDeletedState(state: LogMessagesState, logMessage: LogMessage): LogMessagesState {
+  static logMessageDeletedState(state: ILogMessagesState, logMessage: LogMessage): ILogMessagesState {
     return LogMessagesState.create(LogMessagesStates._deleteLogMessage(state.logMessages, logMessage));
   }
 
-  static logMessagesDeletedState(): LogMessagesState {
+  static logMessagesDeletedState(): ILogMessagesState {
     return LogMessagesState.empty();
   }
 
