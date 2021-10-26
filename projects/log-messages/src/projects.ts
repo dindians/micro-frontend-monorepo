@@ -10,6 +10,4 @@ export * from './lib/model/log-message';
 export * from './lib/store/i-log-messages-state';
 export * from './lib/store/log-messages.actions';
 export * from './lib/store/log-messages.state.reducer'
-export * from './lib/store/log-messages.state';
-export * from './lib/store/log-messages.states';
 export * from './lib/store/log-messages.store';
