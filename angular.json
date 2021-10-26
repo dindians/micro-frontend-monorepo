@@ -215,23 +215,23 @@
         }
       }
     },
-    "lib-log-message-shared": {
+    "log-messages": {
       "projectType": "library",
-      "root": "projects/lib-log-message-shared",
-      "sourceRoot": "projects/lib-log-message-shared/src",
+      "root": "projects/log-messages",
+      "sourceRoot": "projects/log-messages/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/lib-log-message-shared/ng-package.json"
+            "project": "projects/log-messages/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/lib-log-message-shared/tsconfig.lib.prod.json"
+              "tsConfig": "projects/log-messages/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/lib-log-message-shared/tsconfig.lib.json"
+              "tsConfig": "projects/log-messages/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -239,71 +239,9 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/lib-log-message-shared/src/test.ts",
-            "tsConfig": "projects/lib-log-message-shared/tsconfig.spec.json",
-            "karmaConfig": "projects/lib-log-message-shared/karma.conf.js"
-          }
-        }
-      }
-    },
-    "log-message-tester": {
-      "projectType": "library",
-      "root": "projects/log-message-tester",
-      "sourceRoot": "projects/log-message-tester/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/log-message-tester/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/log-message-tester/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/log-message-tester/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/log-message-tester/src/test.ts",
-            "tsConfig": "projects/log-message-tester/tsconfig.spec.json",
-            "karmaConfig": "projects/log-message-tester/karma.conf.js"
-          }
-        }
-      }
-    },
-    "log-message-model": {
-      "projectType": "library",
-      "root": "projects/log-message-model",
-      "sourceRoot": "projects/log-message-model/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/log-message-model/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/log-message-model/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/log-message-model/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/log-message-model/src/test.ts",
-            "tsConfig": "projects/log-message-model/tsconfig.spec.json",
-            "karmaConfig": "projects/log-message-model/karma.conf.js"
+            "main": "projects/log-messages/src/test.ts",
+            "tsConfig": "projects/log-messages/tsconfig.spec.json",
+            "karmaConfig": "projects/log-messages/karma.conf.js"
           }
         }
       }
