@@ -15,7 +15,7 @@ module.exports = {
   },
   optimization: {
     runtimeChunk: false
-  },   
+  },
   resolve: {
     alias: {
       ...sharedMappings.getAliases(),
@@ -23,29 +23,18 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      
-        // For remotes (please adjust)
-        // name: "host",
-        // filename: "remoteEntry.js",
-        // exposes: {
-        //     './Component': './projects/host/src/app/app.component.ts',
-        // },        
-        
-        // For hosts (please adjust)
+      // no need to register the micro frontend. We will use dynamic module federation to load the micro frontend dynamically
         // remotes: {
-        //     "mfe1": "mfe1@http://localhost:4200/remoteEntry.js",
+        //     "mfe1": "mfe1@http://localhost:4001/remoteEntry.js",
 
         // },
-
         shared: share({
-          "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
-          "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
-          "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' }, 
+          "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+          "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+          "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
           "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-
           ...sharedMappings.getDescriptors()
         })
-        
     }),
     sharedMappings.getPlugin()
   ],

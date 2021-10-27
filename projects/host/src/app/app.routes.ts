@@ -1,6 +1,35 @@
 import {Routes} from "@angular/router";
 import {HomeComponent} from "./home/home.component";
+import {loadRemoteModule} from "@angular-architects/module-federation";
+import {environment} from "../environments/environment";
 
 export const APP_ROUTES: Routes = [
-  { path: 'home', component: HomeComponent }
-]
+  { path: 'home', component: HomeComponent },
+  { path: 'mfe1-log-message-tester',
+    loadChildren: () => loadRemoteModule({
+      remoteEntry: 'http://localhost:4001/remoteEntry.js',
+      remoteName: 'mfe1',
+      exposedModule: 'LogMessageTester'
+    })
+    .then(m => { consoleLog('returning m.LogMessageTesterModule'); consoleLog(m); return m.LogMessageTesterModule; })
+    .catch(err => console.log('Oh no!', err))
+    .finally(() => consoleLog('remote LogMessageTester loaded from path mfe1-log-message-tester'))
+  }
+];
+
+function consoleLog(message?: any) {
+  if(environment.production) return;
+  switch (typeof message) {
+    case "undefined":
+      return;
+    case "function":
+      console.log(message);
+      return;
+    case "object":
+      console.log(message);
+      return;
+    default:
+      console.log('[app.routes.ts] ' + message);
+      return;
+  }
+}
