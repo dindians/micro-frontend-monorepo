@@ -15,7 +15,7 @@ import {
 export const ILOGMESSAGE_ADDER_INJECTION_TOKEN = new InjectionToken<ILogMessageAdder>('ILOGMESSAGE_ADDER');
 export const ILOGMESSAGES_CONTEXT_INJECTION_TOKEN = new InjectionToken<ILogMessagesContext>('ILOGMESSAGES_CONTEXT');
 
-const logMessagesStateFeatureName = 'logMessagesState';
+export const logMessagesStateFeatureName = 'logMessagesState';
 const logMessagesFeatureSelector = createFeatureSelector<ILogMessagesState>(logMessagesStateFeatureName)
 const logMessages = createSelector(logMessagesFeatureSelector, state => state.logMessages)
 const logMessagesContext = (store: Store<ILogMessagesState>) => combineLatest([store.pipe(select(logMessages))])
