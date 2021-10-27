@@ -27,10 +27,9 @@ steps to create a multi-project workspace
 7. install angular ngrx store w/ dev-tools
   ng add @ngrx/store
   ng add @ngrx/store-devtools
-
-
-ng add @angular-architects/module-federation
+8. install angular module federation
+  ng add @angular-architects/module-federation
+  Note:
+  install module federation in the host project (port 4000) and the mfe1 project (port 4001)
 
 https://fonts.google.com/icons?selected=Material+Icons
-
-remove libraries lib-log-message-shared, and loh-message-tester (also remove from ts.config and more ?)
