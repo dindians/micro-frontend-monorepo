@@ -14,7 +14,17 @@ export const APP_ROUTES: Routes = [
     .then(m => { consoleLog('returning m.LogMessageTesterModule'); consoleLog(m); return m.LogMessageTesterModule; })
     .catch(err => console.log('Oh no!', err))
     .finally(() => consoleLog('remote LogMessageTester loaded from path mfe1-log-message-tester'))
-  }
+  },
+  { path: 'mfe1-log-messages',
+    loadChildren: () => loadRemoteModule({
+      remoteEntry: 'http://localhost:4001/remoteEntry.js',
+      remoteName: 'mfe1',
+      exposedModule: 'LogMessages'
+    })
+      .then(m => { consoleLog('returning m.LogMessagesModule'); consoleLog(m); return m.LogMessagesModule; })
+      .catch(err => console.log('Oh no!', err))
+      .finally(() => consoleLog('remote LogMessages loaded from path mfe1-log-messages'))
+  },
 ];
 
 function consoleLog(message?: any) {

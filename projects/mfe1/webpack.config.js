@@ -26,7 +26,8 @@ module.exports = {
         name: "mfe1",
         filename: "remoteEntry.js",
         exposes: {
-          'LogMessageTester': './projects/mfe1/src/app/log-message-tester/log-message-tester.module.ts'
+          'LogMessageTester': './projects/mfe1/src/app/log-message-tester/log-message-tester.module.ts',
+          'LogMessages': './projects/mfe1/src/app/log-messages/log-messages.module.ts'
         },
         shared: share({
           "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' },

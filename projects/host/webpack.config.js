@@ -26,7 +26,6 @@ module.exports = {
       // no need to register the micro frontend. We will use dynamic module federation to load the micro frontend dynamically
         // remotes: {
         //     "mfe1": "mfe1@http://localhost:4001/remoteEntry.js",
-
         // },
         shared: share({
           "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
