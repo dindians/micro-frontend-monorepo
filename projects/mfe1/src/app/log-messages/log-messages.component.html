@@ -1,1 +1,40 @@
-<p>micro frontend one log-messages works!</p>
+<h2 class="messages">LogMessages Component from micro frontend mfe3</h2>
+<div *ngIf="(context$ | async) as context">
+  <div class="messages" *ngIf="context.logMessages.length > 0">
+    <h2>{{context.logMessages.length}} Messages</h2>
+    <table>
+      <thead>
+      <tr>
+        <th></th>
+        <th>Level</th>
+        <th>Datetime</th>
+        <th>Source</th>
+        <th>Message</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let logMessage of context.logMessages">
+        <td>
+          <button mat-icon-button (click)="deleteLogMessage(logMessage)">
+            <mat-icon matTooltip="delete message" color="warn">clear</mat-icon>
+          </button>
+        </td>
+        <td [ngSwitch]="logMessage.logLevel">
+          <mat-icon *ngSwitchCase="'0'" matTooltip="error" style="-webkit-text-fill-color:red">error_outline</mat-icon>
+          <mat-icon *ngSwitchCase="'1'" matTooltip="warning" style="-webkit-text-fill-color:orange">warning_amber</mat-icon>
+          <mat-icon *ngSwitchCase="'2'" matTooltip="info" style="-webkit-text-fill-color:green">info_outline</mat-icon>
+          <mat-icon *ngSwitchCase="'3'" matTooltip="debug" style="-webkit-text-fill-color:gray">bug_report</mat-icon>
+          <mat-icon *ngSwitchCase="'4'" matTooltip="trace" style="-webkit-text-fill-color:gray">check_circle_outline</mat-icon>
+          <mat-icon *ngSwitchDefault matTooltip="unknown level {{logMessage.logLevel}}" style="-webkit-text-fill-color:red">notification_important</mat-icon>
+        </td>
+        <td>{{logMessage.dateTime | date:'yyyy-MM-dd HH:mm:ss.SSS'}}</td>
+        <td>{{logMessage.source}}</td>
+        <td>{{logMessage.message}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="messages" *ngIf="context.logMessages.length === 0">
+    ...no messages...
+  </div>
+</div>

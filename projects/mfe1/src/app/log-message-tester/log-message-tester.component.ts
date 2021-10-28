@@ -23,6 +23,6 @@ export class LogMessageTesterComponent {
   error(): void { this.addLogMessage('error from micro frontend one', LogLevel.ERROR); }
 
   private addLogMessage(message: string, logLevel: LogLevel): void {
-    this.logMessageAdder.addLogMessage(new LogMessage('[micro frontend one log-message-tester-component] ' + message, logLevel, JSON.parse(JSON.stringify(new Date())), 'HomeComponent'));
+    this.logMessageAdder.addLogMessage(new LogMessage('[micro frontend one log-message-tester-component] ' + message, logLevel, JSON.parse(JSON.stringify(new Date())), 'LogMessageTesterComponent'));
   }
 }
