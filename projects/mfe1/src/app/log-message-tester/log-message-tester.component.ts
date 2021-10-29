@@ -1,11 +1,10 @@
 import {Component, Inject} from '@angular/core';
-import {ILOGMESSAGE_ADDER_INJECTION_TOKEN, ILogMessageAdder, LogLevel, LogMessage, LogMessagesStore} from "@lib/log-messages";
+import {ILOGMESSAGE_ADDER_INJECTION_TOKEN, ILogMessageAdder, LogLevel, LogMessage} from "@lib/log-messages";
 
 @Component({
   selector: 'app-log-message-tester',
   templateUrl: './log-message-tester.component.html',
-  styleUrls: ['./log-message-tester.component.scss'],
-  providers: [ {provide: ILOGMESSAGE_ADDER_INJECTION_TOKEN, useExisting: LogMessagesStore} ]
+  styleUrls: ['./log-message-tester.component.scss']
 })
 export class LogMessageTesterComponent {
   constructor(@Inject(ILOGMESSAGE_ADDER_INJECTION_TOKEN) private readonly logMessageAdder: ILogMessageAdder) {}

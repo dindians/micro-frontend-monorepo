@@ -1,21 +1,12 @@
 import {Component, Inject} from '@angular/core';
 import {
-  ILOGMESSAGES_CONTEXT_INJECTION_TOKEN,
-  ILOGMESSAGE_DELETER_INJECTION_TOKEN,
-  ILogMessagesContext,
-  ILogMessageDeleter,
-  LogMessage,
-  LogMessagesStore
-} from "@lib/log-messages";
+  ILOGMESSAGES_CONTEXT_INJECTION_TOKEN, ILOGMESSAGE_DELETER_INJECTION_TOKEN,
+  ILogMessagesContext, ILogMessageDeleter, LogMessage} from "@lib/log-messages";
 
 @Component({
   selector: 'app-log-messages',
   templateUrl: './log-messages.component.html',
-  styleUrls: ['./log-messages.component.scss'],
-  providers: [
-    {provide: ILOGMESSAGES_CONTEXT_INJECTION_TOKEN, useExisting: LogMessagesStore},
-    {provide: ILOGMESSAGE_DELETER_INJECTION_TOKEN, useExisting: LogMessagesStore}
-  ]
+  styleUrls: ['./log-messages.component.scss']
 })
 export class LogMessagesComponent {
   constructor(
