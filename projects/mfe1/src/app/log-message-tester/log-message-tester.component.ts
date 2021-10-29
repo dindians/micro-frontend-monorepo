@@ -1,11 +1,5 @@
 import {Component, Inject} from '@angular/core';
-import {
-  ILOGMESSAGE_ADDER_INJECTION_TOKEN,
-  ILogMessageAdder,
-  LogLevel,
-  LogMessage,
-  LogMessagesStore
-} from "@lib/log-messages";
+import {ILOGMESSAGE_ADDER_INJECTION_TOKEN, ILogMessageAdder, LogLevel, LogMessage, LogMessagesStore} from "@lib/log-messages";
 
 @Component({
   selector: 'app-log-message-tester',
