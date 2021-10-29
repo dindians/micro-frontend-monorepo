@@ -12,8 +12,9 @@ import {
   ILogMessagesState
 } from "@lib/log-messages";
 
-export const ILOGMESSAGE_ADDER_INJECTION_TOKEN = new InjectionToken<ILogMessageAdder>('ILOGMESSAGE_ADDER');
 export const ILOGMESSAGES_CONTEXT_INJECTION_TOKEN = new InjectionToken<ILogMessagesContext>('ILOGMESSAGES_CONTEXT');
+export const ILOGMESSAGE_ADDER_INJECTION_TOKEN = new InjectionToken<ILogMessageAdder>('ILOGMESSAGE_ADDER');
+export const ILOGMESSAGE_DELETER_INJECTION_TOKEN = new InjectionToken<ILogMessageDeleter>('ILOGMESSAGE_ADDER');
 
 export const logMessagesStateFeatureName = 'logMessagesState';
 const logMessagesFeatureSelector = createFeatureSelector<ILogMessagesState>(logMessagesStateFeatureName)

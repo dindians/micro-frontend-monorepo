@@ -1,8 +1,12 @@
-import {Component, Inject, InjectionToken} from '@angular/core';
-import {ILogMessageDeleter, ILogMessagesContext, LogMessage, LogMessagesStore} from "@lib/log-messages";
-
-const ILOGMESSAGES_CONTEXT_INJECTION_TOKEN = new InjectionToken<ILogMessagesContext>('ILOGMESSAGES_CONTEXT');
-const ILOGMESSAGE_DELETER_INJECTION_TOKEN = new InjectionToken<ILogMessageDeleter>('ILOGMESSAGE_DELETER');
+import {Component, Inject} from '@angular/core';
+import {
+  ILOGMESSAGES_CONTEXT_INJECTION_TOKEN,
+  ILOGMESSAGE_DELETER_INJECTION_TOKEN,
+  ILogMessagesContext,
+  ILogMessageDeleter,
+  LogMessage,
+  LogMessagesStore
+} from "@lib/log-messages";
 
 @Component({
   selector: 'app-log-messages',
