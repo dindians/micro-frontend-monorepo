@@ -1,5 +1,5 @@
 import {LogMessage} from "./log-message";
 
-export interface ILogMessageAdder {
+export interface IMfe1LogMessageTesterComponent {
   addLogMessage(logMessage: LogMessage): void;
 }

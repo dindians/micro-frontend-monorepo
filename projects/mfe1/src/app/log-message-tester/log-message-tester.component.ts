@@ -1,5 +1,8 @@
 import {Component, Inject} from '@angular/core';
-import {ILOGMESSAGE_ADDER_INJECTION_TOKEN, ILogMessageAdder, LogLevel, LogMessage} from "@lib/log-messages";
+import {
+  IMFE1_LOGMESSAGE_TESTER_COMPONENT_INJECTION_TOKEN,
+  LogLevel, LogMessage, IMfe1LogMessageTesterComponent
+} from "@lib/log-messages";
 
 @Component({
   selector: 'app-log-message-tester',
@@ -7,7 +10,7 @@ import {ILOGMESSAGE_ADDER_INJECTION_TOKEN, ILogMessageAdder, LogLevel, LogMessag
   styleUrls: ['./log-message-tester.component.scss']
 })
 export class LogMessageTesterComponent {
-  constructor(@Inject(ILOGMESSAGE_ADDER_INJECTION_TOKEN) private readonly logMessageAdder: ILogMessageAdder) {}
+  constructor(@Inject(IMFE1_LOGMESSAGE_TESTER_COMPONENT_INJECTION_TOKEN) private readonly logMessages: IMfe1LogMessageTesterComponent) {}
 
   trace(): void { this.addLogMessage('trace from micro frontend one', LogLevel.TRACE); }
   debug(): void { this.addLogMessage('debug from micro frontend one', LogLevel.DEBUG); }
@@ -16,6 +19,6 @@ export class LogMessageTesterComponent {
   error(): void { this.addLogMessage('error from micro frontend one', LogLevel.ERROR); }
 
   private addLogMessage(message: string, logLevel: LogLevel): void {
-    this.logMessageAdder.addLogMessage(new LogMessage('[micro frontend one log-message-tester-component] ' + message, logLevel, JSON.parse(JSON.stringify(new Date())), 'LogMessageTesterComponent'));
+    this.logMessages.addLogMessage(new LogMessage('[micro frontend one log-message-tester-component] ' + message, logLevel, JSON.parse(JSON.stringify(new Date())), 'LogMessageTesterComponent'));
   }
 }

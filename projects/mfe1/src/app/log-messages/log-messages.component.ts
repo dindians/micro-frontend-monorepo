@@ -1,7 +1,5 @@
 import {Component, Inject} from '@angular/core';
-import {
-  ILOGMESSAGES_CONTEXT_INJECTION_TOKEN, ILOGMESSAGE_DELETER_INJECTION_TOKEN,
-  ILogMessagesContext, ILogMessageDeleter, LogMessage} from "@lib/log-messages";
+import {IMFE1_LOGMESSAGES_COMPONENT_INJECTION_TOKEN, IMfe1LogMessagesComponent, LogMessage} from "@lib/log-messages";
 
 @Component({
   selector: 'app-log-messages',
@@ -9,13 +7,10 @@ import {
   styleUrls: ['./log-messages.component.scss']
 })
 export class LogMessagesComponent {
-  constructor(
-    @Inject(ILOGMESSAGES_CONTEXT_INJECTION_TOKEN) private readonly logMessagesContext: ILogMessagesContext,
-    @Inject(ILOGMESSAGE_DELETER_INJECTION_TOKEN) private readonly logMessageDeleter: ILogMessageDeleter
-  ) {}
-  context$ = this.logMessagesContext.context$;
+  constructor(@Inject(IMFE1_LOGMESSAGES_COMPONENT_INJECTION_TOKEN) private readonly logMessages: IMfe1LogMessagesComponent) {}
+  context$ = this.logMessages.context$;
 
   deleteLogMessage(logMessage: LogMessage): void {
-    this.logMessageDeleter.deleteLogMessage(logMessage);
+    this.logMessages.deleteLogMessage(logMessage);
   }
 }

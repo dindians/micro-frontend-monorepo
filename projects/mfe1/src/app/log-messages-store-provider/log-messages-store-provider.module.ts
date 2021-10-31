@@ -2,8 +2,14 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {StoreModule} from "@ngrx/store";
 import {
-  ILOGMESSAGES_CONTEXT_INJECTION_TOKEN, ILOGMESSAGE_ADDER_INJECTION_TOKEN, ILOGMESSAGE_DELETER_INJECTION_TOKEN, logMessagesStateFeatureName,
-  ILogMessagesState, logMessagesStateReducer, LogMessagesStore
+  IHOST_HEADER_COMPONENT_INJECTION_TOKEN,
+  IHOST_HOME_COMPONENT_INJECTION_TOKEN,
+  IMFE1_LOGMESSAGES_COMPONENT_INJECTION_TOKEN,
+  IMFE1_LOGMESSAGE_TESTER_COMPONENT_INJECTION_TOKEN,
+  logMessagesStateFeatureName,
+  ILogMessagesState,
+  logMessagesStateReducer,
+  LogMessagesStore
 } from "@lib/log-messages";
 
 @NgModule({
@@ -12,9 +18,10 @@ import {
     StoreModule.forFeature<ILogMessagesState>(logMessagesStateFeatureName, logMessagesStateReducer)
   ],
   providers: [
-    {provide: ILOGMESSAGES_CONTEXT_INJECTION_TOKEN, useExisting: LogMessagesStore},
-    {provide: ILOGMESSAGE_ADDER_INJECTION_TOKEN, useExisting: LogMessagesStore},
-    {provide: ILOGMESSAGE_DELETER_INJECTION_TOKEN, useExisting: LogMessagesStore}
+    {provide: IHOST_HEADER_COMPONENT_INJECTION_TOKEN, useExisting: LogMessagesStore},
+    {provide: IHOST_HOME_COMPONENT_INJECTION_TOKEN, useExisting: LogMessagesStore},
+    {provide: IMFE1_LOGMESSAGES_COMPONENT_INJECTION_TOKEN, useExisting: LogMessagesStore},
+    {provide: IMFE1_LOGMESSAGE_TESTER_COMPONENT_INJECTION_TOKEN, useExisting: LogMessagesStore}
   ]
 })
 export class LogMessagesStoreProviderModule {}
