@@ -1,11 +1,7 @@
 import {createReducer, on} from "@ngrx/store";
 import {environment} from "../../../../host/src/environments/environment";
-import {
-  addLogMessage,
-  deleteLogMessage,
-  deleteLogMessages,
-  ILogMessagesState, LogMessage
-} from "@lib/log-messages";
+import {addLogMessage, deleteLogMessage, deleteLogMessages} from "./log-messages.actions";
+import {ILogMessagesState, LogMessage} from "@lib/log-messages";
 
 class LogMessagesState implements ILogMessagesState {
   private constructor(readonly logMessages: LogMessage[]) {}
