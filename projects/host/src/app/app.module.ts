@@ -7,8 +7,6 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {environment} from '../environments/environment';
 import {hydrationMetaReducer} from "./hydration-meta-reducer";
-import {IAppState} from "./i-app-state";
-import {logMessagesStateReducer} from "@lib/log-messages";
 import {HeaderModule} from "./header/header.module";
 
 const metaReducers: MetaReducer[] = [hydrationMetaReducer];
@@ -22,9 +20,8 @@ const metaReducers: MetaReducer[] = [hydrationMetaReducer];
     BrowserAnimationsModule,
     AppRoutingModule,
     HeaderModule,
-    StoreModule.forRoot<IAppState>({logMessagesState: logMessagesStateReducer}, {metaReducers}),
-    environment.production ? [] : StoreDevtoolsModule.instrument(),
-    MatBadgeModule,
+    StoreModule.forRoot({}, {metaReducers}),
+    environment.production ? [] : StoreDevtoolsModule.instrument()
 //    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],
