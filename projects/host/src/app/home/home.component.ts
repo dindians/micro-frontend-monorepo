@@ -1,11 +1,10 @@
 import {Component, Inject} from '@angular/core';
-import {LogLevel, LogMessage, IHostHomeComponent, LogMessagesStore, IHOST_HOME_COMPONENT_INJECTION_TOKEN} from "@lib/log-messages";
+import {IHOST_HOME_COMPONENT_INJECTION_TOKEN, IHostHomeComponent, LogLevel, LogMessage} from "@lib/log-messages";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
-  providers: [ {provide: IHOST_HOME_COMPONENT_INJECTION_TOKEN, useExisting: LogMessagesStore} ]
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
   constructor(@Inject(IHOST_HOME_COMPONENT_INJECTION_TOKEN) private readonly logMessages: IHostHomeComponent) {}

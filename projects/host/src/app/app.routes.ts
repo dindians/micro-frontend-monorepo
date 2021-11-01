@@ -1,10 +1,9 @@
 import {Routes} from "@angular/router";
-import {HomeComponent} from "./home/home.component";
 import {loadRemoteModule} from "@angular-architects/module-federation";
 import {environment} from "../environments/environment";
 
 export const APP_ROUTES: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
   { path: 'mfe1-log-message-tester',
     loadChildren: () => loadRemoteModule({
       remoteEntry: 'http://localhost:4001/remoteEntry.js',

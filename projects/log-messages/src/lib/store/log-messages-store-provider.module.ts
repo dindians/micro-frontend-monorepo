@@ -1,16 +1,15 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {StoreModule} from "@ngrx/store";
+import {ILogMessagesState} from "./i-log-messages-state";
+import {logMessagesStateReducer} from "./log-messages.state.reducer";
 import {
   IHOST_HEADER_COMPONENT_INJECTION_TOKEN,
   IHOST_HOME_COMPONENT_INJECTION_TOKEN,
   IMFE1_LOGMESSAGES_COMPONENT_INJECTION_TOKEN,
-  IMFE1_LOGMESSAGE_TESTER_COMPONENT_INJECTION_TOKEN,
-  logMessagesStateFeatureName,
-  ILogMessagesState,
-  logMessagesStateReducer,
-  LogMessagesStore
-} from "@lib/log-messages";
+  IMFE1_LOGMESSAGE_TESTER_COMPONENT_INJECTION_TOKEN
+} from "./interfaces"
+import {logMessagesStateFeatureName, LogMessagesStore} from "./log-messages.store";
 
 @NgModule({
   imports: [
