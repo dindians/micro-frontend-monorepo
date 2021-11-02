@@ -8,7 +8,7 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatIconModule} from "@angular/material/icon";
 import {MatMenuModule} from "@angular/material/menu";
 import {HeaderComponent} from "./header.component";
-import {LogMessagesStoreProviderModule} from "@lib/log-messages";
+import {LogMessagesInteractionProviderModule} from "@lib/log-messages";
 
 @NgModule({
   declarations: [HeaderComponent],
@@ -22,7 +22,7 @@ import {LogMessagesStoreProviderModule} from "@lib/log-messages";
     MatTooltipModule,
     MatIconModule,
     MatMenuModule,
-    LogMessagesStoreProviderModule
+    LogMessagesInteractionProviderModule
   ]
 })
 export class HeaderModule {}

@@ -1,6 +1,5 @@
-import {createReducer, on} from "@ngrx/store";
+import {createAction, createReducer, on, props} from "@ngrx/store";
 import {environment} from "../../../../host/src/environments/environment";
-import {addLogMessage, deleteLogMessage, deleteLogMessages} from "./log-messages.actions";
 import {ILogMessagesState, LogMessage} from "@lib/log-messages";
 
 class LogMessagesState implements ILogMessagesState {
@@ -32,6 +31,10 @@ class LogMessagesStates {
     return logMessages.filter(logMessage => !LogMessage.areEqual(logMessage, logMessageToDelete));
   }
 }
+
+export const addLogMessage = createAction('[log-messages] Add LogMessage', props<{ logMessage: LogMessage }>());
+export const deleteLogMessage = createAction('[log-messages] Delete LogMessage', props<{ logMessage: LogMessage}>());
+export const deleteLogMessages = createAction('[log-messages] Delete LogMessages');
 
 export const logMessagesStateReducer = createReducer<ILogMessagesState>(
   LogMessagesStates.initialState(),

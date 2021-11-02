@@ -10,7 +10,7 @@ import {DummyAuthenticationComponent} from './dummy-authentication.component';
 import {DummyAuthenticationRoutingModule} from "./dummy-authentication-routing.module";
 import {authStateFeatureName, IAuthState} from "../auth/i-auth-state";
 import {authStateReducer} from "../auth/auth.state.reducer";
-import {LogMessagesStoreProviderModule} from "@lib/log-messages";
+import {LogMessagesInteractionProviderModule} from "@lib/log-messages";
 
 @NgModule({
   declarations: [DummyAuthenticationComponent],
@@ -23,7 +23,7 @@ import {LogMessagesStoreProviderModule} from "@lib/log-messages";
     ReactiveFormsModule,
     DummyAuthenticationRoutingModule,
     StoreModule.forFeature<IAuthState>(authStateFeatureName, authStateReducer),
-    LogMessagesStoreProviderModule
+    LogMessagesInteractionProviderModule
   ]
 })
 export class DummyAuthenticationModule {}
