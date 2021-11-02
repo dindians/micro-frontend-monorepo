@@ -14,7 +14,7 @@
         "dist/log-messages/log-messages",
         "dist/log-messages"
       ],
-      "@lib/log-messages": [ "./projects/log-messages/src/projects.ts" ]
+      "@lib/log-messages": [ "./projects/log-messages/src/public-apis.ts" ]
     },
     "declaration": false,
     "downlevelIteration": true,
