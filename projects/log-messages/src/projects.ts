@@ -10,5 +10,11 @@ export * from './lib/model/i-mfe1-log-message-tester-component';
 export * from './lib/model/log-level';
 export * from './lib/model/log-message';
 export * from './lib/store/i-log-messages-state';
-export * from './lib/store/interfaces';
-export { LogMessagesInteractionProviderModule } from './lib/store/log-messages-interaction-provider.module';
+export {
+  IHOST_HEADER_COMPONENT_INJECTION_TOKEN,
+  IHOST_HOME_COMPONENT_INJECTION_TOKEN,
+  IHOST_DUMMY_AUTHENTICATION_COMPONENT_INJECTION_TOKEN,
+  IMFE1_LOGMESSAGES_COMPONENT_INJECTION_TOKEN,
+  IMFE1_LOGMESSAGE_TESTER_COMPONENT_INJECTION_TOKEN,
+  LogMessagesInteractionProviderModule
+} from './lib/store/log-messages-interaction-provider.module';

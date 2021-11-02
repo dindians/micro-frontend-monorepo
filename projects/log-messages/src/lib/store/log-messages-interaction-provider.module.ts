@@ -1,16 +1,9 @@
-import {Injectable, NgModule} from '@angular/core';
+import {Injectable, InjectionToken, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {createFeatureSelector, createSelector, select, Store, StoreModule} from "@ngrx/store";
 import {map} from "rxjs/operators";
 import {combineLatest} from "rxjs";
 import {addLogMessage, deleteLogMessage, deleteLogMessages, logMessagesStateReducer} from "./log-messages.state.reducer";
-import {
-  IHOST_HEADER_COMPONENT_INJECTION_TOKEN,
-  IHOST_HOME_COMPONENT_INJECTION_TOKEN,
-  IHOST_DUMMY_AUTHENTICATION_COMPONENT_INJECTION_TOKEN,
-  IMFE1_LOGMESSAGES_COMPONENT_INJECTION_TOKEN,
-  IMFE1_LOGMESSAGE_TESTER_COMPONENT_INJECTION_TOKEN
-} from "./interfaces"
 import {LogMessage, ILogMessagesState, IHostHeaderComponent, IHostHomeComponent, IHostDummyAuthenticationComponent, IMfe1LogMessagesComponent, IMfe1LogMessageTesterComponent} from "@lib/log-messages";
 
 const logMessagesStateFeatureName = 'logMessagesState';
@@ -44,6 +37,12 @@ class LogMessagesInteraction implements IHostHeaderComponent, IHostHomeComponent
     this.store.dispatch(deleteLogMessages());
   }
 }
+
+export const IHOST_HEADER_COMPONENT_INJECTION_TOKEN = new InjectionToken<IHostHeaderComponent>('IHOST_HEADER_COMPONENT');
+export const IHOST_HOME_COMPONENT_INJECTION_TOKEN = new InjectionToken<IHostHomeComponent>('IHOST_HOME_COMPONENT');
+export const IHOST_DUMMY_AUTHENTICATION_COMPONENT_INJECTION_TOKEN = new InjectionToken<IHostDummyAuthenticationComponent>('IHOST_DUMMY_AUTHENTICATION_COMPONENT');
+export const IMFE1_LOGMESSAGES_COMPONENT_INJECTION_TOKEN = new InjectionToken<IMfe1LogMessagesComponent>('IMFE1_LOGMESSAGES_COMPONENT');
+export const IMFE1_LOGMESSAGE_TESTER_COMPONENT_INJECTION_TOKEN = new InjectionToken<IMfe1LogMessageTesterComponent>('IMFE1_LOGMESSAGE_TESTER_COMPONENT');
 
 @NgModule({
   imports: [
