@@ -10,7 +10,17 @@
   <button mat-icon-button routerLink="/mfe1-log-message-tester">
     <mat-icon matTooltip="mfe one logmessage tester">input</mat-icon>
   </button>
-  <button mat-icon-button routerLink="/mfe1-log-messages">
-    <mat-icon matTooltip="mfe-one logmessages" matBadge="{{context.logMessages.length}}" matBadgeColor="warn" matBadgeSize="small">dynamic_feed</mat-icon>
+  <button mat-icon-button [mat-menu-trigger-for]="messageMenu">
+    <mat-icon matTooltip="log messages" matBadge="{{context.logMessages.length}}" matBadgeColor="warn" matBadgeSize="small">dynamic_feed</mat-icon>
+    <mat-menu #messageMenu="matMenu">
+      <button mat-menu-item routerLink="/mfe1-log-messages">
+        <mat-icon matTooltip="view log">view_list</mat-icon>
+        <span>View</span>
+      </button>
+      <button mat-menu-item (click)="deleteLogMessages()">
+        <mat-icon matTooltip="clear log">clear</mat-icon>
+        <span>Clear</span>
+      </button>
+    </mat-menu>
   </button>
 </mat-toolbar>

@@ -6,6 +6,7 @@ import {MatBadgeModule} from "@angular/material/badge";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatIconModule} from "@angular/material/icon";
+import {MatMenuModule} from "@angular/material/menu";
 import {HeaderComponent} from "./header.component";
 import {LogMessagesStoreProviderModule} from "@lib/log-messages";
 
@@ -20,6 +21,7 @@ import {LogMessagesStoreProviderModule} from "@lib/log-messages";
     MatToolbarModule,
     MatTooltipModule,
     MatIconModule,
+    MatMenuModule,
     LogMessagesStoreProviderModule
   ]
 })

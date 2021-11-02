@@ -9,4 +9,5 @@ import {IHOST_HEADER_COMPONENT_INJECTION_TOKEN, IHostHeaderComponent} from "@lib
 export class HeaderComponent {
   context$ = this.logMessages.context$;
   constructor(@Inject(IHOST_HEADER_COMPONENT_INJECTION_TOKEN) private readonly logMessages: IHostHeaderComponent) {}
+  deleteLogMessages(): void { this.logMessages.deleteLogMessages(); }
 }

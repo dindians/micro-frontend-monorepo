@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {createFeatureSelector, createSelector, select, Store} from "@ngrx/store";
 import {combineLatest} from "rxjs";
 import {map} from "rxjs/operators";
-import {addLogMessage, deleteLogMessage} from "./log-messages.actions";
+import {addLogMessage, deleteLogMessage, deleteLogMessages} from "./log-messages.actions";
 import {
   LogMessage, ILogMessagesState,
   IHostHomeComponent, IHostDummyAuthenticationComponent, IHostHeaderComponent, IMfe1LogMessagesComponent, IMfe1LogMessageTesterComponent
@@ -25,7 +25,12 @@ export class LogMessagesStore implements IHostHeaderComponent, IHostHomeComponen
   }
 
   deleteLogMessage(logMessage: LogMessage): void {
-    console.log('[mfe3 log-message-store-impl] delete log-message.')
+    console.log('[mfe3 log-message-store] delete log-message.')
     this.store.dispatch(deleteLogMessage({ logMessage }));
+  }
+
+  deleteLogMessages() {
+    console.log('[mfe3 log-message-store] delete log-messages.')
+    this.store.dispatch(deleteLogMessages());
   }
 }
