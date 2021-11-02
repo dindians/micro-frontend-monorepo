@@ -7,7 +7,7 @@ import {IHOST_HEADER_COMPONENT_INJECTION_TOKEN, IHostHeaderComponent} from "@lib
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  context$ = this.logMessages.context$;
+  context$ = this.logMessages.hostHeaderComponentContext$;
   constructor(@Inject(IHOST_HEADER_COMPONENT_INJECTION_TOKEN) private readonly logMessages: IHostHeaderComponent) {}
   deleteLogMessages(): void { this.logMessages.deleteLogMessages(); }
 }

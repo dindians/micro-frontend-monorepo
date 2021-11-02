@@ -11,7 +11,7 @@
     <mat-icon matTooltip="mfe one logmessage tester">input</mat-icon>
   </button>
   <button mat-icon-button [mat-menu-trigger-for]="messageMenu">
-    <mat-icon matTooltip="log messages" matBadge="{{context.logMessages.length}}" matBadgeColor="warn" matBadgeSize="small">dynamic_feed</mat-icon>
+    <mat-icon matTooltip="log messages" matBadge="{{context.logMessagesLength}}" matBadgeColor="warn" matBadgeSize="small">dynamic_feed</mat-icon>
     <mat-menu #messageMenu="matMenu">
       <button mat-menu-item routerLink="/mfe1-log-messages">
         <mat-icon matTooltip="view log">view_list</mat-icon>

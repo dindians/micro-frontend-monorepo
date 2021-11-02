@@ -8,7 +8,7 @@ import {IMFE1_LOGMESSAGES_COMPONENT_INJECTION_TOKEN, IMfe1LogMessagesComponent, 
 })
 export class LogMessagesComponent {
   constructor(@Inject(IMFE1_LOGMESSAGES_COMPONENT_INJECTION_TOKEN) private readonly logMessages: IMfe1LogMessagesComponent) {}
-  context$ = this.logMessages.context$;
+  context$ = this.logMessages.mfe1LogMessagesComponentContext$;
 
   deleteLogMessage(logMessage: LogMessage): void {
     this.logMessages.deleteLogMessage(logMessage);
