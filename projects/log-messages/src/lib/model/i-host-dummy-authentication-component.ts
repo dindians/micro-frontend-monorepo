@@ -1,5 +1,5 @@
 import {LogMessage} from "@lib/log-messages";
 
-export interface IHostDummyLoginComponent {
+export interface IHostDummyAuthenticationComponent {
   addLogMessage(logMessage: LogMessage): void;
 }

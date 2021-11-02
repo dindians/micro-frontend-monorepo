@@ -5,7 +5,7 @@ import {map} from "rxjs/operators";
 import {addLogMessage, deleteLogMessage} from "./log-messages.actions";
 import {
   LogMessage, ILogMessagesState,
-  IHostHomeComponent, IHostDummyLoginComponent, IHostHeaderComponent, IMfe1LogMessagesComponent, IMfe1LogMessageTesterComponent
+  IHostHomeComponent, IHostDummyAuthenticationComponent, IHostHeaderComponent, IMfe1LogMessagesComponent, IMfe1LogMessageTesterComponent
 } from "@lib/log-messages";
 
 export const logMessagesStateFeatureName = 'logMessagesState';
@@ -15,7 +15,7 @@ const logMessagesContext = (store: Store<ILogMessagesState>) => combineLatest([s
   .pipe(map(([logMessages]) => { return { logMessages: logMessages } }));
 
 @Injectable({ providedIn: 'root'})
-export class LogMessagesStore implements IHostHeaderComponent, IHostHomeComponent, IHostDummyLoginComponent, IMfe1LogMessagesComponent, IMfe1LogMessageTesterComponent {
+export class LogMessagesStore implements IHostHeaderComponent, IHostHomeComponent, IHostDummyAuthenticationComponent, IMfe1LogMessagesComponent, IMfe1LogMessageTesterComponent {
   constructor(private readonly store: Store<ILogMessagesState>) {}
 
   context$ = logMessagesContext(this.store);
