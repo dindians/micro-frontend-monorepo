@@ -9,15 +9,15 @@ class LogMessagesState implements ILogMessagesState {
   static empty(): ILogMessagesState {return LogMessagesState.create([]); }
 }
 
-class LogMessagesStates {
+class ReducerStates {
   static initialState(): ILogMessagesState { return LogMessagesState.empty(); }
 
   static logMessageAddedState(state: ILogMessagesState, logMessage: LogMessage): ILogMessagesState {
-    return LogMessagesState.create(LogMessagesStates._addLogMessage(state.logMessages, logMessage));
+    return LogMessagesState.create(ReducerStates._addLogMessage(state.logMessages, logMessage));
   }
 
   static logMessageDeletedState(state: ILogMessagesState, logMessage: LogMessage): ILogMessagesState {
-    return LogMessagesState.create(LogMessagesStates._deleteLogMessage(state.logMessages, logMessage));
+    return LogMessagesState.create(ReducerStates._deleteLogMessage(state.logMessages, logMessage));
   }
 
   static logMessagesDeletedState(): ILogMessagesState {
@@ -32,15 +32,16 @@ class LogMessagesStates {
   }
 }
 
+// Reducer Actions
 export const addLogMessage = createAction('[log-messages] Add LogMessage', props<{ logMessage: LogMessage }>());
 export const deleteLogMessage = createAction('[log-messages] Delete LogMessage', props<{ logMessage: LogMessage}>());
 export const deleteLogMessages = createAction('[log-messages] Delete LogMessages');
 
 export const logMessagesStateReducer = createReducer<ILogMessagesState>(
-  LogMessagesStates.initialState(),
-  on(addLogMessage, (state, action) => { consoleLog('addLogMessage action'); return LogMessagesStates.logMessageAddedState(state, action.logMessage); }),
-  on(deleteLogMessage, (state, action) => { consoleLog('deleteLogMessage action'); return LogMessagesStates.logMessageDeletedState(state, action.logMessage); }),
-  on(deleteLogMessages, _ => { consoleLog('deleteLogMessages action'); return LogMessagesStates.logMessagesDeletedState(); })
+  ReducerStates.initialState(),
+  on(addLogMessage, (state, action) => { consoleLog('addLogMessage action'); return ReducerStates.logMessageAddedState(state, action.logMessage); }),
+  on(deleteLogMessage, (state, action) => { consoleLog('deleteLogMessage action'); return ReducerStates.logMessageDeletedState(state, action.logMessage); }),
+  on(deleteLogMessages, _ => { consoleLog('deleteLogMessages action'); return ReducerStates.logMessagesDeletedState(); })
 );
 
 function consoleLog(message?: any) {

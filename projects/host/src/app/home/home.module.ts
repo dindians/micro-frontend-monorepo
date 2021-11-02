@@ -5,7 +5,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {HomeComponent} from "./home.component";
 import {HomeRoutingModule} from "./home-routing.module";
-import {LogMessagesInteractionProviderModule} from "@lib/log-messages";
+import {LogMessagesInteractionModule} from "@lib/log-messages";
 
 @NgModule({
   declarations: [HomeComponent],
@@ -15,7 +15,7 @@ import {LogMessagesInteractionProviderModule} from "@lib/log-messages";
     MatIconModule,
     MatTooltipModule,
     HomeRoutingModule,
-    LogMessagesInteractionProviderModule
+    LogMessagesInteractionModule
   ]
 })
 export class HomeModule {}

@@ -2,9 +2,9 @@ import {Injectable, InjectionToken, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {createFeatureSelector, createSelector, select, Store, StoreModule} from "@ngrx/store";
 import {map} from "rxjs/operators";
-import {combineLatest} from "rxjs";
+import {combineLatest, Observable} from "rxjs";
 import {addLogMessage, deleteLogMessage, deleteLogMessages, logMessagesStateReducer} from "./log-messages.state.reducer";
-import {LogMessage, ILogMessagesState, IHostHeaderComponent, IHostHomeComponent, IHostDummyAuthenticationComponent, IMfe1LogMessagesComponent, IMfe1LogMessageTesterComponent} from "@lib/log-messages";
+import {LogMessage, ILogMessagesState} from "@lib/log-messages";
 
 const logMessagesStateFeatureName = 'logMessagesState';
 
@@ -15,6 +15,24 @@ const logMessagesLengthSelector = createSelector(logMessagesSelector, logMessage
 const hostHeaderComponentContext = (store: Store<ILogMessagesState>) => store.pipe(select(logMessagesLengthSelector)).pipe(map((length) => { return { logMessagesLength: length }}));
 const mfe1LogMessagesComponentContext = (store: Store<ILogMessagesState>) => combineLatest([store.pipe(select(logMessagesSelector))])
   .pipe(map(([logMessages]) => { return { logMessages: logMessages } }));
+
+export interface IHostHeaderComponent {
+  hostHeaderComponentContext$: Observable<{  logMessagesLength: Number }>;
+  deleteLogMessages(): void;
+}
+export interface IHostHomeComponent {
+  addLogMessage(logMessage: LogMessage): void;
+}
+export interface IHostDummyAuthenticationComponent {
+  addLogMessage(logMessage: LogMessage): void;
+}
+export interface IMfe1LogMessagesComponent {
+  mfe1LogMessagesComponentContext$: Observable<{ logMessages: LogMessage[] }>;
+  deleteLogMessage(logMessage: LogMessage): void;
+}
+export interface IMfe1LogMessageTesterComponent {
+  addLogMessage(logMessage: LogMessage): void;
+}
 
 @Injectable({ providedIn: 'root'})
 class LogMessagesInteraction implements IHostHeaderComponent, IHostHomeComponent, IHostDummyAuthenticationComponent, IMfe1LogMessagesComponent, IMfe1LogMessageTesterComponent {
@@ -57,4 +75,4 @@ export const IMFE1_LOGMESSAGE_TESTER_COMPONENT_INJECTION_TOKEN = new InjectionTo
     {provide: IMFE1_LOGMESSAGE_TESTER_COMPONENT_INJECTION_TOKEN, useExisting: LogMessagesInteraction}
   ]
 })
-export class LogMessagesInteractionProviderModule {}
+export class LogMessagesInteractionModule {}
