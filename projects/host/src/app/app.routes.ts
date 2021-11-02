@@ -4,7 +4,7 @@ import {environment} from "../environments/environment";
 
 export const APP_ROUTES: Routes = [
   { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
-  { path: 'dummy-login', loadChildren: () => import('./dummy-authentication/dummy-authentication.module').then(m => m.DummyAuthenticationModule) },
+  { path: 'dummy-auth', loadChildren: () => import('./dummy-authentication/dummy-authentication.module').then(m => m.DummyAuthenticationModule) },
   { path: 'mfe1-log-message-tester',
     loadChildren: () => loadRemoteModule({
       remoteEntry: 'http://localhost:4001/remoteEntry.js',
