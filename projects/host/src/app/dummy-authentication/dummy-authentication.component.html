@@ -20,9 +20,10 @@
         <td>
           <mat-form-field appearance="standard" style="width: 400px !important;">
             <mat-label>Username</mat-label>
-            <input type="text" matInput placeholder="username" [formControl]="userNameFormControl" required/>
+            <input type="text" matInput placeholder="username" formControlName="userName" required/>
             <mat-hint>enter your dummy user name</mat-hint>
-            <mat-error *ngIf="userNameFormControl.hasError('required')">Username is <strong>required</strong></mat-error>
+            <mat-error *ngIf="userNameFormControl.errors?.required">Username is <strong>required</strong>.</mat-error>
+            <mat-error *ngIf="userNameFormControl.errors?.minlength">Username must be at least <strong>{{userNameMinimumLength}}</strong> characters long.</mat-error>
           </mat-form-field>
         </td>
         <td>

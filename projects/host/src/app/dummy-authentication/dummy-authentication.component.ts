@@ -15,7 +15,8 @@ import {IHOST_DUMMY_AUTHENTICATION_COMPONENT_INJECTION_TOKEN, IHostDummyAuthenti
 export class DummyAuthenticationComponent {
   constructor(private readonly authStore: Store<IAuthState>,
               @Inject(IHOST_DUMMY_AUTHENTICATION_COMPONENT_INJECTION_TOKEN) private readonly logMessages: IHostDummyAuthenticationComponent) {}
-  userNameFormControl = new FormControl('', [Validators.required]);
+  userNameMinimumLength = 5;
+  userNameFormControl = new FormControl('', [Validators.required, Validators.minLength(this.userNameMinimumLength)]);
   loginFormGroup = new FormGroup({ userName: this.userNameFormControl })
   user$ = this.authStore.pipe(select(user));
   login(): void {
