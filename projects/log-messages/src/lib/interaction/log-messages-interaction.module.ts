@@ -10,7 +10,7 @@ const logMessagesStateFeatureName = 'logMessagesState';
 
 const logMessagesFeatureSelector = createFeatureSelector<ILogMessagesState>(logMessagesStateFeatureName)
 const logMessagesSelector = createSelector(logMessagesFeatureSelector, state => state.logMessages)
-const logMessagesLengthSelector = createSelector(logMessagesSelector, logMessages => logMessages.length);
+const logMessagesLengthSelector = createSelector(logMessagesFeatureSelector, state => state.logMessages.length);
 
 const hostHeaderComponentContext = (store: Store<ILogMessagesState>) => store.pipe(select(logMessagesLengthSelector)).pipe(map((length) => { return { logMessagesLength: length }}));
 const mfe1LogMessagesComponentContext = (store: Store<ILogMessagesState>) => combineLatest([store.pipe(select(logMessagesSelector))])

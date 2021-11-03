@@ -2,7 +2,7 @@
 <div *ngIf="(user$ | async) as user; else noUser">
   <table>
     <tr>
-      <td><strong>logout</strong></td>
+      <td><strong>logout</strong> {{user.name}}</td>
       <td>
         <button mat-icon-button (click)="logout()">
           <mat-icon matTooltip="logout" style="-webkit-text-fill-color:green">logout</mat-icon>
@@ -20,7 +20,7 @@
         <td>
           <mat-form-field appearance="standard" style="width: 400px !important;">
             <mat-label>Username</mat-label>
-            <input matInput placeholder="username" [formControl]="userNameFormControl" required/>
+            <input type="text" matInput placeholder="username" [formControl]="userNameFormControl" required/>
             <mat-hint>enter your dummy user name</mat-hint>
             <mat-error *ngIf="userNameFormControl.hasError('required')">Username is <strong>required</strong></mat-error>
           </mat-form-field>
