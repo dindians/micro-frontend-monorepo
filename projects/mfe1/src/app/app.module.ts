@@ -9,9 +9,7 @@ import {AppComponent} from './app.component';
 import {HeaderModule} from "./header/header.module";
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

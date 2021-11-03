@@ -1,11 +1,9 @@
 import {ActionReducer, INIT} from "@ngrx/store";
 import {IAppState} from "./i-app-state";
 
-export const hydrationMetaReducer = (
-  reducer: ActionReducer<IAppState>
-): ActionReducer<IAppState> => {
+export const hydrationMetaReducer = (reducer: ActionReducer<IAppState>): ActionReducer<IAppState> => {
   return (state, action) => {
-    const appStateKey = 'appState-proto';
+    const appStateKey = 'micro-frontend-monorepo';
     if (action.type === INIT) {
       const storageValue = localStorage.getItem(appStateKey);
       if (storageValue) {

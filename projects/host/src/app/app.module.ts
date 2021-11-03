@@ -12,9 +12,7 @@ import {HeaderModule} from "./header/header.module";
 const metaReducers: MetaReducer[] = [hydrationMetaReducer];
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
