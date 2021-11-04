@@ -17,6 +17,8 @@ export {
   IHOST_HOME_COMPONENT_INJECTION_TOKEN,
   IHOST_DUMMY_AUTHENTICATION_COMPONENT_INJECTION_TOKEN,
   IMFE1_LOGMESSAGES_COMPONENT_INJECTION_TOKEN,
-  IMFE1_LOGMESSAGE_TESTER_COMPONENT_INJECTION_TOKEN,
+  IMFE1_LOGMESSAGE_TESTER_COMPONENT_INJECTION_TOKEN
+} from './lib/interaction/i-log-messages-interaction'
+export {
   LogMessagesInteractionModule
 } from './lib/interaction/log-messages-interaction.module';

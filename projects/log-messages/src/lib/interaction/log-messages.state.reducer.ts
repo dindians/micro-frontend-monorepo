@@ -9,6 +9,10 @@ class LogMessagesState implements ILogMessagesState {
   static empty(): ILogMessagesState {return LogMessagesState.create([]); }
 }
 
+/*
+ models the reducer state as a finite-state machine
+ [ https://en.wikipedia.org/wiki/Finite-state_machine ]
+ */
 class ReducerStates {
   static initialState(): ILogMessagesState { return LogMessagesState.empty(); }
 
