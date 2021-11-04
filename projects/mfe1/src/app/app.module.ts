@@ -18,7 +18,7 @@ import {HeaderModule} from "./header/header.module";
     // add 'StoreModule.forRoot({}, {})' to initialize the ngrx store module to prevent the following bootstrap exception:
     // NullInjectorError: R3InjectorError(AppModule)[StoreFeatureModule -> ReducerManager -> ReducerManager -> ReducerManager]: NullInjectorError: No provider for ReducerManager!
     StoreModule.forRoot({}, {}),
-    environment.production ? [] : StoreDevtoolsModule.instrument()
+    environment.production ? [] : StoreDevtoolsModule.instrument({ name: 'NgRx Micro frontend mfe1', maxAge: 25, logOnly: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

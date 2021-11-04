@@ -19,10 +19,9 @@ const metaReducers: MetaReducer[] = [hydrationMetaReducer];
     AppRoutingModule,
     HeaderModule,
     StoreModule.forRoot({}, {metaReducers}),
-    environment.production ? [] : StoreDevtoolsModule.instrument()
-//    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    environment.production ? [] : StoreDevtoolsModule.instrument({ name: 'NgRx Micro frontend Host', maxAge: 25, logOnly: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
