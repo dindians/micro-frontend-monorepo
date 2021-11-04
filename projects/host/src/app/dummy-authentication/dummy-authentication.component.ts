@@ -1,10 +1,9 @@
 import {Component, Inject} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {select, Store} from "@ngrx/store";
+import {Store} from "@ngrx/store";
 import {loggedIn, loggedOut} from "../auth/auth.actions";
-import {user} from "../auth/auth.state.selectors";
+import {userContext} from "../auth/auth.state.selectors";
 import {IAuthState} from "../auth/i-auth-state";
-import {IUser} from "../model/i-user";
 import {IHOST_DUMMY_AUTHENTICATION_COMPONENT_INJECTION_TOKEN, IHostDummyAuthenticationComponent, LogLevel, LogMessage} from "@lib/log-messages";
 
 @Component({
@@ -18,18 +17,21 @@ export class DummyAuthenticationComponent {
   userNameMinimumLength = 5;
   userNameFormControl = new FormControl('', [Validators.required, Validators.minLength(this.userNameMinimumLength)]);
   loginFormGroup = new FormGroup({ userName: this.userNameFormControl })
-  user$ = this.authStore.pipe(select(user));
+  userContext$ = userContext(this.authStore);
+
   login(): void {
     const userName = this.userNameFormControl.value.toString();
     let userEmailAddress = `${userName}@somewhere.com`;
     this.authStore.dispatch(loggedIn({ user: { name: userName, email: userEmailAddress }}));
     this.logMessages.addLogMessage(DummyAuthenticationComponent.createInfoMessage(`user ${userName} logged in.`));
   };
+
   logout(): void {
-    let loggedInUser: IUser | undefined;
-    this.user$.subscribe(user => loggedInUser = user).unsubscribe();
+    // when the user is logged out, the username will be undefined. Remember the username before logging out.
+    let userName: string | undefined;
+    this.userContext$.subscribe(userContext => userName = userContext.user?.name).unsubscribe();
     this.authStore.dispatch(loggedOut());
-    this.logMessages.addLogMessage(DummyAuthenticationComponent.createInfoMessage(`user ${loggedInUser?.name} logged out.`));
+    this.logMessages.addLogMessage(DummyAuthenticationComponent.createInfoMessage(`user ${userName} logged out.`));
   };
 
   private static createInfoMessage(message: string): LogMessage {

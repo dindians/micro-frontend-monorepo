@@ -1,5 +1,5 @@
 <h2>host | Dummy Authentication Component</h2>
-<div *ngIf="(user$ | async) as user; else noUser">
+<div *ngIf="(userContext$ | async)?.user as user; else noUser">
   <table>
     <tr>
       <td><strong>logout</strong> {{user.name}}</td>

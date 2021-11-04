@@ -12,9 +12,9 @@ const logMessagesFeatureSelector = createFeatureSelector<ILogMessagesState>(logM
 const logMessagesSelector = createSelector(logMessagesFeatureSelector, state => state.logMessages)
 const logMessagesLengthSelector = createSelector(logMessagesFeatureSelector, state => state.logMessages.length);
 
-const hostHeaderComponentContext = (store: Store<ILogMessagesState>) => store.pipe(select(logMessagesLengthSelector)).pipe(map((length) => { return { logMessagesLength: length }}));
+const hostHeaderComponentContext = (store: Store<ILogMessagesState>) => store.pipe(select(logMessagesLengthSelector)).pipe(map((length) => { return { logMessagesLength: length }; }));
 const mfe1LogMessagesComponentContext = (store: Store<ILogMessagesState>) => combineLatest([store.pipe(select(logMessagesSelector))])
-  .pipe(map(([logMessages]) => { return { logMessages: logMessages } }));
+  .pipe(map(([logMessages]) => { return { logMessages: logMessages }; }));
 
 @Injectable({ providedIn: 'root'})
 export class LogMessagesInteraction implements ILogMessagesInteraction {
