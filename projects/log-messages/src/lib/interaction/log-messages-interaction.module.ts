@@ -1,8 +1,9 @@
 import { NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {StoreModule} from "@ngrx/store";
-import {LogMessagesInteraction, logMessagesStateFeatureName} from "./log-messages-interaction";
+import {LogMessagesInteraction} from "./log-messages-interaction";
 import {logMessagesStateReducer} from "./log-messages.state.reducer";
+import {logMessagesStateName} from "../model/i-log-messages-state";
 import {
   IHOST_HEADER_COMPONENT_INJECTION_TOKEN,
   IHOST_DUMMY_AUTHENTICATION_COMPONENT_INJECTION_TOKEN,
@@ -16,7 +17,7 @@ import {
 @NgModule({
   imports: [
     CommonModule,
-    StoreModule.forFeature<ILogMessagesState>(logMessagesStateFeatureName, logMessagesStateReducer)
+    StoreModule.forFeature<ILogMessagesState>(logMessagesStateName(), logMessagesStateReducer)
   ],
   providers: [
     {provide: IHOST_HEADER_COMPONENT_INJECTION_TOKEN, useExisting: LogMessagesInteraction},

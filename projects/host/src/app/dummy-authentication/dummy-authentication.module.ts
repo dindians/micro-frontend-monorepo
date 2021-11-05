@@ -8,7 +8,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {StoreModule} from "@ngrx/store";
 import {DummyAuthenticationComponent} from './dummy-authentication.component';
 import {DummyAuthenticationRoutingModule} from "./dummy-authentication-routing.module";
-import {authStateFeatureName, IAuthState} from "../auth/i-auth-state";
+import {authStateName, IAuthState} from "../auth/i-auth-state";
 import {authStateReducer} from "../auth/auth.state.reducer";
 import {LogMessagesInteractionModule} from "@lib/log-messages";
 
@@ -22,7 +22,7 @@ import {LogMessagesInteractionModule} from "@lib/log-messages";
     MatInputModule,
     ReactiveFormsModule,
     DummyAuthenticationRoutingModule,
-    StoreModule.forFeature<IAuthState>(authStateFeatureName, authStateReducer),
+    StoreModule.forFeature<IAuthState>(authStateName(), authStateReducer),
     LogMessagesInteractionModule
   ]
 })
