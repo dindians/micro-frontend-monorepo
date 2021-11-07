@@ -5,7 +5,7 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatIconModule} from "@angular/material/icon";
 import {LogMessagesComponent} from './log-messages.component';
 import {LogMessagesRoutingModule} from "./log-messages-routing.module";
-import {LogMessagesInteractionModule} from "@lib/log-messages";
+import {LogMessageServiceProviderModule} from "@lib/log-messages";
 
 @NgModule({
   declarations: [LogMessagesComponent],
@@ -15,7 +15,7 @@ import {LogMessagesInteractionModule} from "@lib/log-messages";
     MatButtonModule,
     MatTooltipModule,
     MatIconModule,
-    LogMessagesInteractionModule
+    LogMessageServiceProviderModule
   ]
 })
 export class LogMessagesModule {}

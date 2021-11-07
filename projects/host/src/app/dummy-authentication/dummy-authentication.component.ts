@@ -4,7 +4,7 @@ import {Store} from "@ngrx/store";
 import {loggedIn, loggedOut} from "../auth/auth.actions";
 import {userContext} from "../auth/auth.state.selectors";
 import {IAuthState} from "../auth/i-auth-state";
-import {IHOST_DUMMY_AUTHENTICATION_COMPONENT_INJECTION_TOKEN, IHostDummyAuthenticationComponent, LogLevel, LogMessage} from "@lib/log-messages";
+import {ILOG_MESSAGE_SERVICE_FOR_HOST_DUMMY_AUTHENTICATION_COMPONENT_INJECTION_TOKEN, ILogMessageServiceForHostDummyAuthenticationComponent} from "@lib/log-messages";
 
 @Component({
   selector: 'app-dummy',
@@ -13,7 +13,9 @@ import {IHOST_DUMMY_AUTHENTICATION_COMPONENT_INJECTION_TOKEN, IHostDummyAuthenti
 })
 export class DummyAuthenticationComponent {
   constructor(private readonly authStore: Store<IAuthState>,
-              @Inject(IHOST_DUMMY_AUTHENTICATION_COMPONENT_INJECTION_TOKEN) private readonly logMessages: IHostDummyAuthenticationComponent) {}
+              @Inject(ILOG_MESSAGE_SERVICE_FOR_HOST_DUMMY_AUTHENTICATION_COMPONENT_INJECTION_TOKEN) private readonly logMessageService: ILogMessageServiceForHostDummyAuthenticationComponent) {}
+  private messagePrefix = '[host dummy-authentication-component] ';
+  private messageSource = 'DummyAuthenticationComponent';
   userNameMinimumLength = 5;
   userNameFormControl = new FormControl('', [Validators.required, Validators.minLength(this.userNameMinimumLength)]);
   loginFormGroup = new FormGroup({ userName: this.userNameFormControl })
@@ -23,7 +25,7 @@ export class DummyAuthenticationComponent {
     const userName = this.userNameFormControl.value.toString();
     let userEmailAddress = `${userName}@somewhere.com`;
     this.authStore.dispatch(loggedIn({ user: { name: userName, email: userEmailAddress }}));
-    this.logMessages.addLogMessage(DummyAuthenticationComponent.createInfoMessage(`user ${userName} logged in.`));
+    this.logMessageService.info(this.messagePrefix + `user ${userName} logged in.`, this.messageSource);
   };
 
   logout(): void {
@@ -31,10 +33,6 @@ export class DummyAuthenticationComponent {
     let userName: string | undefined;
     this.userContext$.subscribe(userContext => userName = userContext.user?.name).unsubscribe();
     this.authStore.dispatch(loggedOut());
-    this.logMessages.addLogMessage(DummyAuthenticationComponent.createInfoMessage(`user ${userName} logged out.`));
+    this.logMessageService.info(this.messagePrefix + `user ${userName} logged out.`, this.messageSource);
   };
-
-  private static createInfoMessage(message: string): LogMessage {
-    return new LogMessage(message, LogLevel.INFO, JSON.parse(JSON.stringify(new Date())), "DummyComponent");
-  }
 }

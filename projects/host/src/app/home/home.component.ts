@@ -1,5 +1,5 @@
 import {Component, Inject} from '@angular/core';
-import {IHOST_HOME_COMPONENT_INJECTION_TOKEN, IHostHomeComponent, LogLevel, LogMessage} from "@lib/log-messages";
+import {ILOG_MESSAGE_SERVICE_FOR_HOST_HOME_COMPONENT_INJECTION_TOKEN, ILogMessageServiceForHostHomeComponent} from "@lib/log-messages";
 
 @Component({
   selector: 'app-home',
@@ -7,15 +7,13 @@ import {IHOST_HOME_COMPONENT_INJECTION_TOKEN, IHostHomeComponent, LogLevel, LogM
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  constructor(@Inject(IHOST_HOME_COMPONENT_INJECTION_TOKEN) private readonly logMessages: IHostHomeComponent) {}
+  constructor(@Inject(ILOG_MESSAGE_SERVICE_FOR_HOST_HOME_COMPONENT_INJECTION_TOKEN) private readonly logMessageService: ILogMessageServiceForHostHomeComponent) {}
 
-  trace(): void { this.addLogMessage('trace from micro frontend host', LogLevel.TRACE); }
-  debug(): void { this.addLogMessage('debug from micro frontend host', LogLevel.DEBUG); }
-  info(): void { this.addLogMessage('info from micro frontend host', LogLevel.INFO); }
-  warning(): void { this.addLogMessage('warning from micro frontend host', LogLevel.WARNING); }
-  error(): void { this.addLogMessage('error from micro frontend host', LogLevel.ERROR); }
-
-  private addLogMessage(message: string, logLevel: LogLevel): void {
-    this.logMessages.addLogMessage(new LogMessage('[host home-component] ' + message, logLevel, JSON.parse(JSON.stringify(new Date())), 'HomeComponent'));
-  }
+  private messagePrefix = '[host home-component] ';
+  private messageSource = 'HomeComponent';
+  trace(): void { this.logMessageService.trace(this.messagePrefix + 'trace from micro frontend host',  this.messageSource); }
+  debug(): void { this.logMessageService.debug(this.messagePrefix + 'debug from micro frontend host',  this.messageSource); }
+  info(): void { this.logMessageService.info(this.messagePrefix + 'info from micro frontend host',  this.messageSource); }
+  warning(): void { this.logMessageService.warning(this.messagePrefix + 'warning from micro frontend host',  this.messageSource); }
+  error(): void { this.logMessageService.error(this.messagePrefix + 'error from micro frontend host',  this.messageSource); }
 }

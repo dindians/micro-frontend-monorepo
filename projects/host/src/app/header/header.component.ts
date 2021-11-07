@@ -1,5 +1,5 @@
 import {Component, Inject} from '@angular/core';
-import {IHOST_HEADER_COMPONENT_INJECTION_TOKEN, IHostHeaderComponent} from "@lib/log-messages";
+import {ILOG_MESSAGE_SERVICE_FOR_HOST_HEADER_COMPONENT_INJECTION_TOKEN, ILogMessageServiceForHostHeaderComponent} from "@lib/log-messages";
 
 @Component({
   selector: 'app-header',
@@ -7,7 +7,7 @@ import {IHOST_HEADER_COMPONENT_INJECTION_TOKEN, IHostHeaderComponent} from "@lib
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  context$ = this.logMessages.hostHeaderComponentContext$;
-  constructor(@Inject(IHOST_HEADER_COMPONENT_INJECTION_TOKEN) private readonly logMessages: IHostHeaderComponent) {}
-  deleteLogMessages(): void { this.logMessages.deleteLogMessages(); }
+  context$ = this.logMessageService.hostHeaderComponentContext$;
+  constructor(@Inject(ILOG_MESSAGE_SERVICE_FOR_HOST_HEADER_COMPONENT_INJECTION_TOKEN) private readonly logMessageService: ILogMessageServiceForHostHeaderComponent) {}
+  deleteLogMessages(): void { this.logMessageService.deleteAll(); }
 }
