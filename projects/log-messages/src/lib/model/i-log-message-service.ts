@@ -37,14 +37,7 @@ export interface ILogMessageServiceForMfe1LogMessagesComponent {
   deleteLogMessage(logMessage: LogMessage): void;
 }
 
-export interface ILogMessageService extends ILogMessageServiceForHostHomeComponent, ILogMessageServiceForHostHeaderComponent, ILogMessageServiceForHostDummyAuthenticationComponent, ILogMessageServiceForMfe1LogMessageTesterComponent, ILogMessageServiceForMfe1LogMessagesComponent {
-  debug(message: string, source: string): void;
-  trace(message: string, source: string): void;
-  info(message: string, source: string): void;
-  warning(message: string, source: string): void;
-  error(message: string, source: string): void;
-  deleteAll(): void;
-}
+export interface ILogMessageService extends ILogMessageServiceForHostHomeComponent, ILogMessageServiceForHostHeaderComponent, ILogMessageServiceForHostDummyAuthenticationComponent, ILogMessageServiceForMfe1LogMessageTesterComponent, ILogMessageServiceForMfe1LogMessagesComponent {}
 
 export const ILOG_MESSAGE_SERVICE_FOR_HOST_HOME_COMPONENT_INJECTION_TOKEN = new InjectionToken<ILogMessageServiceForHostHomeComponent>('ILOG_MESSAGE_SERVICE_FOR_HOST_HOME_COMPONENT');
 export const ILOG_MESSAGE_SERVICE_FOR_HOST_HEADER_COMPONENT_INJECTION_TOKEN = new InjectionToken<ILogMessageServiceForHostHeaderComponent>('ILOG_MESSAGE_SERVICE_FOR_HOST_HEADER_COMPONENT');

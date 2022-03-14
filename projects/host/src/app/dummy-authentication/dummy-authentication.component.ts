@@ -22,6 +22,20 @@ export class DummyAuthenticationComponent {
   userContext$ = userContext(this.authStore);
 
   login(): void {
+    /*
+    todo do NOT dispatch loggedIn and loggedOut actions directly from this component, but define a login service for this.
+    here are the login/out feature use cases/user stories
+    * login scenario/workflow:
+
+    1. if user is NOT logged in, enable login button
+    2. login button click event triggers login action
+    3. auth effect listens to login action and triggers login service to execute login function, and when login function returns triggers logging-in action
+    4. login service enables the user to login (how is this done?)
+    5. upon successful login, the login service triggers the logged-in action
+
+    * logout scenario/workflow
+    ...likewise...
+     */
     const userName = this.userNameFormControl.value.toString();
     let userEmailAddress = `${userName}@somewhere.com`;
     this.authStore.dispatch(loggedIn({ user: { name: userName, email: userEmailAddress }}));

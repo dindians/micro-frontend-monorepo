@@ -24,6 +24,7 @@ module.exports = {
   plugins: [
     new ModuleFederationPlugin({
       // no need to register the micro frontend. We will use dynamic module federation to load the micro frontend dynamically
+      // see app.routes.ts where we use loadRemoteModule() method from @angular-architects/module-federation to load the remote module
         // remotes: {
         //     "mfe1": "mfe1@http://localhost:4001/remoteEntry.js",
         // },

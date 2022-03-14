@@ -1,0 +1,16 @@
+nx.dev  dev tools for monorepos
+https://nx.dev/l/a/getting-started/intro
+github.com/nrwl/nx
+
+es-lint
+jest test runner
+cypres test suite for e2e testing (allows to step and go back in time)
+
+Nx is a smart, fast and extensible build system.
+It comes with first class monorepo support and powerful integrations.
+Nx helps you develop Angular applications with fully integrated support for modern tools and libraries like Jest, Cypress, ESLint, Storybook, NgRx and more.
+
+Visual Studio Code (VS Code) has an nx-plugin.
+
+
+banqup-4-Anton@
