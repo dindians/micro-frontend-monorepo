@@ -1,6 +1,20 @@
-[ GitHig repo: https://github.com/dindians/micro-frontend-monorepo ]
+[ GitHub repo: https://github.com/dindians/micro-frontend-monorepo ]
 https://angular.io/guide/file-structure#multiple-projects
 https://www.angulararchitects.io/blog/
+https://www.angulararchitects.io/aktuelles/dynamic-module-federation-with-angular/
+https://www.angulararchitects.io/aktuelles/dynamic-module-federation-with-angular-2/
+https://github.com/manfredsteyer/module-federation-with-angular-dynamic-workflow-designer
+
+sustainable angular-architectures with monorepos and strategic domain-driven design
+https://www.youtube.com/watch?v=hVHqGT5U5rA
+
+free eBook: https://angulararchitects.io/book
+https://www.ng-conf.org/
+podcast https://ng-show
+
+webpack module federation
+https://webpack.js.org/concepts/module-federation/
+
 
 use a "monorepo" development style, with a single repository and global configuration for all Angular projects.
 steps to create a multi-project workspace
@@ -12,7 +26,7 @@ steps to create a multi-project workspace
   ng application host --routing --style=scss
   ng application mfe1 --routing --style=scss
 3. create the shared log-message library project
-  ng g lib lib-log-message-shared
+  ng g lib log-messages
 4. create the shared log message model library project
   ng g lib log-message-model
 5. add start commands for host and mfe1 project to package.json
